@@ -13,7 +13,6 @@ import java.sql.Date;
 public class Reservation {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private String idReservation;
     private Date anneeUniversitaire;
     private Boolean estValide;
