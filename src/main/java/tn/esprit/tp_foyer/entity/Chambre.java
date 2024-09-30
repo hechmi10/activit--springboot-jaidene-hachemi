@@ -1,8 +1,14 @@
 package tn.esprit.tp_foyer.entity;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+
 public class Chambre {
 
     @Id
