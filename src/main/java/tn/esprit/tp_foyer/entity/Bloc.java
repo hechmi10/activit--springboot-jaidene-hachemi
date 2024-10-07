@@ -23,7 +23,7 @@ public class Bloc {
     @OneToMany(cascade= CascadeType.ALL,mappedBy = "bloc")
     private Set<Chambre> chambres;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Foyer foyer;
 
 }

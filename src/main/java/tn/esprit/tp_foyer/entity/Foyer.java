@@ -20,7 +20,7 @@ public class Foyer {
     private String nomFoyer;
     private long capaciteFoyer;
 
-    @OneToOne(mappedBy="foyer")
+    @OneToOne
     private Universite universite;
 
     @OneToMany(cascade=CascadeType.ALL,mappedBy = "foyer")
