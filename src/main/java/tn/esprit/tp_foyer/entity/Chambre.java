@@ -3,12 +3,15 @@ package tn.esprit.tp_foyer.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Set;
+
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
+@ToString
+@EqualsAndHashCode
 public class Chambre {
 
     @Id
@@ -19,4 +22,10 @@ public class Chambre {
 
     @Enumerated(EnumType.STRING)
     private TypeChambre TypeC;
+
+    @OneToMany(cascade= CascadeType.ALL)
+    private Set<Reservation> reservation;
+
+    @ManyToOne
+    private Bloc bloc;
 }

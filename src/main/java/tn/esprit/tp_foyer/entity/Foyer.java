@@ -1,19 +1,17 @@
 package tn.esprit.tp_foyer.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.Set;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
+@EqualsAndHashCode
 public class Foyer {
 
     @Id
@@ -21,5 +19,12 @@ public class Foyer {
     private long idFoyer;
     private String nomFoyer;
     private long capaciteFoyer;
+
+    @OneToOne(mappedBy="foyer")
+    private Universite universite;
+
+    @OneToMany(cascade=CascadeType.ALL,mappedBy = "foyer")
+    private Set<Bloc> blocs;
+
 
 }

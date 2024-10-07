@@ -1,19 +1,17 @@
 package tn.esprit.tp_foyer.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.Set;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
+@EqualsAndHashCode
 public class Bloc {
 
     @Id
@@ -21,5 +19,11 @@ public class Bloc {
     private long idBloc;
     private String nomBloc;
     private long capaciteBloc;
+
+    @OneToMany(cascade= CascadeType.ALL,mappedBy = "bloc")
+    private Set<Chambre> chambres;
+
+    @ManyToOne
+    private Foyer foyer;
 
 }
