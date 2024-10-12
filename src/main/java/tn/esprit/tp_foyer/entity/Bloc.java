@@ -20,10 +20,10 @@ public class Bloc {
     private String nomBloc;
     private long capaciteBloc;
 
-    @OneToMany(cascade= CascadeType.ALL,mappedBy = "bloc")
+    @OneToMany(mappedBy = "bloc",cascade= CascadeType.ALL)
     private Set<Chambre> chambres;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Foyer foyer;
 
 }

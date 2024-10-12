@@ -26,6 +26,6 @@ public class Chambre {
     @OneToMany(cascade= CascadeType.ALL)
     private Set<Reservation> reservation;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Bloc bloc;
 }
