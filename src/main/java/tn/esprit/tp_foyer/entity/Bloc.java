@@ -3,6 +3,7 @@ package tn.esprit.tp_foyer.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.io.Serializable;
 import java.util.Set;
 
 @Entity
@@ -12,7 +13,7 @@ import java.util.Set;
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class Bloc {
+public class Bloc implements Serializable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
