@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import tn.esprit.tp_foyer.entity.Chambre;
 
 @Repository
-public interface ChambreRepository extends JpaRepository<Chambre, Integer> {
+public interface ChambreRepository extends JpaRepository<Chambre, Long> {
 }

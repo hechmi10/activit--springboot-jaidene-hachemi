@@ -6,4 +6,5 @@ import tn.esprit.tp_foyer.entity.Bloc;
 
 @Repository
 public interface BlocRepository extends JpaRepository<Bloc, Long> {
+
 }
