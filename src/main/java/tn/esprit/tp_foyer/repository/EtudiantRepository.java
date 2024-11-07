@@ -13,9 +13,12 @@ import java.util.Set;
 @Repository
 public interface EtudiantRepository extends JpaRepository<Etudiant, Long> {
 
+    /*
     @Override
     List<Etudiant> findAll();
 
-    @Query("SELECT e.idEtudiant,e.nomEt,e.prenomEt,e.cin,e.ecole,e.dateNaissance FROM Etudiant e where e.dateNaissance BETWEEN :from and :to")
+    @Query("SELECT e FROM Etudiant e WHERE e.dateNaissance BETWEEN :from AND :to")
     List<Etudiant> retrieveByDateNaissanceBetween(@Param("from") Date from,@Param("to") Date to);
+     */
+
 }
