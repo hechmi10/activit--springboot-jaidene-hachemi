@@ -40,6 +40,6 @@ public class BlocRestController {
     //http:localhost:8089/foyer/bloc/modify-bloc
     @PutMapping("/modify-bloc")
     public Bloc modifyBloc(@RequestBody Bloc bloc) {
-        return blocService.saveBloc(bloc);
+        return blocService.updateBloc(bloc);
     }
 }
