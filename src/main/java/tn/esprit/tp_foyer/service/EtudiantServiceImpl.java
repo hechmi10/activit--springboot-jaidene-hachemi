@@ -1,5 +1,6 @@
 package tn.esprit.tp_foyer.service;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.tp_foyer.entity.Etudiant;
 import tn.esprit.tp_foyer.repository.EtudiantRepository;
@@ -7,9 +8,10 @@ import tn.esprit.tp_foyer.repository.EtudiantRepository;
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class EtudiantServiceImpl implements IEtudiantService{
 
-    EtudiantRepository etudiantRepository;
+    private EtudiantRepository etudiantRepository;
 
     @Override
     public List<Etudiant> retrieveAllEtudiants() {

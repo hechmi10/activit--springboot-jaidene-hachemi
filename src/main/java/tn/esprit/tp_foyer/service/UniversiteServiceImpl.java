@@ -1,5 +1,6 @@
 package tn.esprit.tp_foyer.service;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.tp_foyer.entity.Universite;
 import tn.esprit.tp_foyer.repository.UniversiteRepository;
@@ -7,9 +8,10 @@ import tn.esprit.tp_foyer.repository.UniversiteRepository;
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class UniversiteServiceImpl implements IUniversiteService{
 
-    UniversiteRepository universiteRepository;
+    private UniversiteRepository universiteRepository;
 
     @Override
     public List<Universite> findAllUniversites() {

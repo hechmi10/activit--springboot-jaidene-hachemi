@@ -1,5 +1,6 @@
 package tn.esprit.tp_foyer.service;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.tp_foyer.entity.Reservation;
 import tn.esprit.tp_foyer.repository.ReservationRepository;
@@ -8,9 +9,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class ReservationServiceImpl implements IReservationService{
 
-    ReservationRepository reservationRepository;
+    private ReservationRepository reservationRepository;
 
     @Override
     public List<Reservation> findAllReservations() {

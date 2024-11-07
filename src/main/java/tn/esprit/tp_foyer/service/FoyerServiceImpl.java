@@ -1,5 +1,6 @@
 package tn.esprit.tp_foyer.service;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.tp_foyer.entity.Foyer;
 import tn.esprit.tp_foyer.repository.FoyerRepository;
@@ -7,9 +8,10 @@ import tn.esprit.tp_foyer.repository.FoyerRepository;
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class FoyerServiceImpl implements IFoyerService{
 
-    FoyerRepository foyerRepository;
+    private FoyerRepository foyerRepository;
 
     @Override
     public List<Foyer> findAllFoyers() {
