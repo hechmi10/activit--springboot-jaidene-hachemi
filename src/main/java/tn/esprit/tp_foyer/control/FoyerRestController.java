@@ -40,6 +40,6 @@ public class FoyerRestController {
     //http://localhost:8089/foyer/foyerU/modify-foyer
     @PutMapping("modify-foyer")
     public Foyer modifyFoyer(@RequestBody Foyer foyer) {
-        return foyerService.saveFoyer(foyer);
+        return foyerService.updateFoyer(foyer);
     }
 }

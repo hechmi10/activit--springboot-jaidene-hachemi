@@ -41,6 +41,6 @@ public class UniversiteRestController {
     //http://localhost:8089/foyer/universite/modify-universite
     @PutMapping("/modify-universite")
     public Universite modifyUniversite(@RequestBody Universite universite) {
-        return universiteService.saveUniversite(universite);
+        return universiteService.updateUniversite(universite);
     }
 }
