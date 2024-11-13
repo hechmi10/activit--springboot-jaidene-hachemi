@@ -39,7 +39,7 @@ public class FoyerRestController {
 
     //http://localhost:8089/foyer/foyerU/modify-foyer
     @PutMapping("modify-foyer")
-    public Foyer modifyFoyer(@RequestBody Foyer foyer) {
-        return foyerService.updateFoyer(foyer);
+    public Foyer modifyFoyer(@RequestBody Foyer foyer,Long id) {
+        return foyerService.updateFoyer(foyer,id);
     }
 }

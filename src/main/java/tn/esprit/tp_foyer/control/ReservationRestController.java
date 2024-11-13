@@ -40,7 +40,7 @@ public class ReservationRestController {
 
     //http://localhost:8089/foyer/reservation/modify-reservation
     @PutMapping("/modify-reservation")
-    public Reservation updateReservation(@RequestBody Reservation reservation){
-        return reservationService.updateReservation(reservation);
+    public Reservation updateReservation(@RequestBody Reservation reservation,String id){
+        return reservationService.updateReservation(reservation,id);
     }
 }

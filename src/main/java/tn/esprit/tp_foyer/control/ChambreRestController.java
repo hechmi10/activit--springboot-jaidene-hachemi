@@ -39,7 +39,7 @@ public class ChambreRestController {
 
     //http:localhost:8089/foyer/chambre/modify-chambre
     @PutMapping("/modify-chambre")
-    public Chambre modifyChambre(@RequestBody Chambre chambre) {
-        return chambreService.updateChambre(chambre);
+    public Chambre modifyChambre(@RequestBody Chambre chambre,Long id) {
+        return chambreService.updateChambre(chambre,id);
     }
 }

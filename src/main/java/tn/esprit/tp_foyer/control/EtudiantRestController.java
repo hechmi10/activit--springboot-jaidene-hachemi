@@ -33,8 +33,8 @@ public class EtudiantRestController {
 
     //http://localhost:8089/foyer/etudiant/modify-etudiant
     @PutMapping("/modify-etudiant")
-    public Etudiant modifyEtudiant(@RequestBody Etudiant etudiant) {
-        return etudiantService.updateEtudiant(etudiant);
+    public Etudiant modifyEtudiant(@RequestBody Etudiant etudiant,Long id) {
+        return etudiantService.updateEtudiant(etudiant,id);
     }
 
     //http://localhost:8089/foyer/etudiant/delete-etudiant/1
