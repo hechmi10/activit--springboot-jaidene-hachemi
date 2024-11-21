@@ -9,7 +9,7 @@ import tn.esprit.tp_foyer.service.IFoyerService;
 
 import java.util.List;
 
-@Tag(name = "Gestion de foyer")
+@Tag(name = "Gestion des foyers")
 @RestController
 @AllArgsConstructor
 @RequestMapping("/foyerU")

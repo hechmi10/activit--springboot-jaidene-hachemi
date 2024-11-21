@@ -32,8 +32,8 @@ public class BlocRestController {
 
     //http://localhost:8089/foyer/bloc/add-bloc
     @Operation(description = "Ajout d'un bloc")
-    @PostMapping("/add-bloc")
-    public Bloc addBloc(@RequestBody Bloc bloc) {
+    @PostMapping("/save-bloc")
+    public Bloc saveBloc(@RequestBody Bloc bloc) {
         return blocService.saveBloc(bloc);
     }
 
