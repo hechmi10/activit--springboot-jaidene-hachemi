@@ -19,7 +19,7 @@ public class UniversiteServiceImpl implements IUniversiteService{
     }
 
     @Override
-    public Universite findUniversiteById(Long id) {
+    public Universite retrieveUniversite(Long id) {
         return universiteRepository.findById(id).isPresent() ? universiteRepository.findById(id).get() : null;
     }
 
@@ -37,7 +37,7 @@ public class UniversiteServiceImpl implements IUniversiteService{
     }
 
     @Override
-    public void deleteUniversite(Long id) {
+    public void removeUniversite(Long id) {
         universiteRepository.deleteById(id);
     }
 }

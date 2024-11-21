@@ -19,7 +19,7 @@ public class FoyerServiceImpl implements IFoyerService{
     }
 
     @Override
-    public Foyer findFoyerById(Long id) {
+    public Foyer retrieveFoyer(Long id) {
         return foyerRepository.findById(id).isPresent() ? foyerRepository.findById(id).get() : null;
     }
 
@@ -37,7 +37,7 @@ public class FoyerServiceImpl implements IFoyerService{
     }
 
     @Override
-    public void deleteFoyer(Long id) {
+    public void removeFoyer(Long id) {
         foyerRepository.deleteById(id);
     }
 

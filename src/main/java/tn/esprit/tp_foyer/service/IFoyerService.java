@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface IFoyerService {
     List<Foyer> findAllFoyers();
-    Foyer findFoyerById(Long id);
+    Foyer retrieveFoyer(Long id);
     Foyer saveFoyer(Foyer foyer);
     Foyer updateFoyer(Foyer foyer,Long id);
-    void deleteFoyer(Long id);
+    void removeFoyer(Long id);
 }

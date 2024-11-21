@@ -23,7 +23,7 @@ public class ReservationRestController {
     //http://localhost:8089/foyer/reservations/retrieve-reservation/5
     @GetMapping("/retrieve-reservation/{reservation-id}")
     public Reservation retrieveReservation(@PathVariable("reservation-id") String reservationId) {
-        return reservationService.findReservationById(reservationId);
+        return reservationService.retrieveReservation(reservationId);
     }
 
     //http://localhost:8089/foyer/reservations/add-reservation
@@ -35,7 +35,7 @@ public class ReservationRestController {
     //http://localhost:8089/foyer/reservation/delete-reservation/5
     @DeleteMapping("/delete-reservation/{reservation-id}")
     public void deleteReservation(@PathVariable("reservation-id") String reservationId){
-        reservationService.deleteReservationById(reservationId);
+        reservationService.removeReservation(reservationId);
     }
 
     //http://localhost:8089/foyer/reservation/modify-reservation

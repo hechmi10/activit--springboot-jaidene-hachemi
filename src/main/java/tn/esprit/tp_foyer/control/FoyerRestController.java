@@ -22,7 +22,7 @@ public class FoyerRestController {
     //http://localhost:8089/foyer/foyerU/retrieve-foyer/2
     @GetMapping("retrieve-foyer/{foyer-id}")
     public Foyer retrieveFoyer(@PathVariable("foyer-id") Long foyerId) {
-        return foyerService.findFoyerById(foyerId);
+        return foyerService.retrieveFoyer(foyerId);
     }
 
     //http://localhost:8089/foyer/foyerU/add-foyer
@@ -34,7 +34,7 @@ public class FoyerRestController {
     //http://localhost:8089/foyer/foyerU/delete-foyer/4
     @DeleteMapping("delete-foyer/{foyer-id}")
     public void deleteFoyer(@PathVariable("foyer-id") Long foyerId) {
-        foyerService.deleteFoyer(foyerId);
+        foyerService.removeFoyer(foyerId);
     }
 
     //http://localhost:8089/foyer/foyerU/modify-foyer

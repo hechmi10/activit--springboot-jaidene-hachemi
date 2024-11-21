@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface IReservationService {
     List<Reservation> findAllReservations();
-    Reservation findReservationById(String id);
+    Reservation retrieveReservation(String id);
     Reservation saveReservation(Reservation reservation);
     Reservation updateReservation(Reservation reservation,String id);
-    void deleteReservationById(String id);
+    void removeReservation(String id);
 }

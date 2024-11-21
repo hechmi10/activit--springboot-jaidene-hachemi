@@ -20,7 +20,7 @@ public class BlocServiceImpl implements IBlocService{
     }
 
     @Override
-    public Bloc findBlocById(Long id) {
+    public Bloc retrieveBloc(Long id) {
         return blocRepository.findById(id).isPresent() ? blocRepository.findById(id).get() : null;
     }
 
@@ -38,7 +38,7 @@ public class BlocServiceImpl implements IBlocService{
     }
 
     @Override
-    public void deleteBloc(Long id) {
+    public void removeBloc(Long id) {
         blocRepository.deleteById(id);
     }
 }

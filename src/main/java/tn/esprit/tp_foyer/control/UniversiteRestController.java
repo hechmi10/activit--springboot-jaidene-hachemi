@@ -23,7 +23,7 @@ public class UniversiteRestController {
     //http://localhost:8089/foyer/universite/retrieve-universite/8
     @GetMapping("/retrieve-universite/{universite-id}")
     public Universite retrieveUniversite(@PathVariable("universite-id") Long universiteId) {
-        return universiteService.findUniversiteById(universiteId);
+        return universiteService.retrieveUniversite(universiteId);
     }
 
     //http://localhost:8089/foyer/universite/add-universite
@@ -35,7 +35,7 @@ public class UniversiteRestController {
     //http://localhost:8089/foyer/universite/delete-universite/7
     @DeleteMapping("/delete-universite/{universite-id}")
     public void deleteUniversite(@PathVariable("universite-id") Long universiteId) {
-        universiteService.deleteUniversite(universiteId);
+        universiteService.removeUniversite(universiteId);
     }
 
     //http://localhost:8089/foyer/universite/modify-universite
