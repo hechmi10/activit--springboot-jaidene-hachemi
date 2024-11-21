@@ -5,7 +5,7 @@ import tn.esprit.tp_foyer.entity.Bloc;
 import java.util.List;
 
 public interface IBlocService {
-    List<Bloc> findAllBlocs();
+    List<Bloc> retrieveAllBlocs();
     Bloc retrieveBloc(Long id);
     Bloc saveBloc(Bloc bloc);
     Bloc updateBloc(Bloc bloc);

@@ -21,7 +21,7 @@ public class UniversiteRestController {
     @Operation(description="Récupérer tous les universités")
     @GetMapping("/retrieve-all-universites")
     public List<Universite> retrieveAllUniversites() {
-        return universiteService.findAllUniversites();
+        return universiteService.retrieveAllUniversites();
     }
 
     //http://localhost:8089/foyer/universite/retrieve-universite/8
@@ -33,22 +33,22 @@ public class UniversiteRestController {
 
     //http://localhost:8089/foyer/universite/add-universite
     @Operation(description="Ajouter une université")
-    @PostMapping("/add-universite")
-    public Universite addUniversite(@RequestBody Universite universite) {
+    @PostMapping("/save-universite")
+    public Universite saveUniversite(@RequestBody Universite universite) {
         return universiteService.saveUniversite(universite);
     }
 
     //http://localhost:8089/foyer/universite/delete-universite/7
     @Operation(description="Supprimer une université par son ID")
-    @DeleteMapping("/delete-universite/{universite-id}")
-    public void deleteUniversite(@PathVariable("universite-id") Long universiteId) {
+    @DeleteMapping("/remove-universite/{universite-id}")
+    public void removeUniversite(@PathVariable("universite-id") Long universiteId) {
         universiteService.removeUniversite(universiteId);
     }
 
     //http://localhost:8089/foyer/universite/modify-universite
     @Operation(description="Modifier une université")
-    @PutMapping("/modify-universite")
-    public Universite modifyUniversite(@RequestBody Universite universite) {
+    @PutMapping("/update-universite")
+    public Universite updateUniversite(@RequestBody Universite universite) {
         return universiteService.updateUniversite(universite);
     }
 }

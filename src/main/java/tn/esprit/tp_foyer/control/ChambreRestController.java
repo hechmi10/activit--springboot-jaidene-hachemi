@@ -19,21 +19,21 @@ public class ChambreRestController {
     //http:localhost:8089/foyer/chambre/retrieve-all-chambres
     @Operation(description = "Récuperer tous les chambres")
     @GetMapping("/retrieve-all-chambres")
-    public List<Chambre> getChambres() {
+    public List<Chambre> retrieveAllChambres() {
         return chambreService.retrieveAllChambres();
     }
 
     //http:localhost:8089/foyer/chambre/retrieve-chambre/8
     @Operation(description = "Récuperer une chambre par son ID")
     @GetMapping("/retrieve-chambre/{chambre-id}")
-    public Chambre getChambreById(@PathVariable("chambre-id") Long id) {
+    public Chambre retrieveChambre(@PathVariable("chambre-id") Long id) {
         return chambreService.retrieveChambre(id);
     }
 
     //http:localhost:8089/foyer/chambre/add-chambre
     @Operation(description = "Ajout d'une chambre")
-    @PostMapping("/add-chambre")
-    public Chambre addChambre(@RequestBody Chambre chambre) {
+    @PostMapping("/create-chambre")
+    public Chambre createChambre(@RequestBody Chambre chambre) {
         return chambreService.createChambre(chambre);
     }
 
@@ -46,8 +46,8 @@ public class ChambreRestController {
 
     //http:localhost:8089/foyer/chambre/modify-chambre
     @Operation(description="Modification d'une chambre")
-    @PutMapping("/modify-chambre")
-    public Chambre modifyChambre(@RequestBody Chambre chambre) {
+    @PutMapping("/update-chambre")
+    public Chambre updateChambre(@RequestBody Chambre chambre) {
         return chambreService.updateChambre(chambre);
     }
 }

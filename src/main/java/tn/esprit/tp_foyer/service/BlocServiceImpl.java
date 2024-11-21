@@ -15,7 +15,7 @@ public class BlocServiceImpl implements IBlocService{
     private BlocRepository blocRepository;
 
     @Override
-    public List<Bloc> findAllBlocs() {
+    public List<Bloc> retrieveAllBlocs() {
         return blocRepository.findAll();
     }
 

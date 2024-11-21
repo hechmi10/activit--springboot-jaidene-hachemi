@@ -14,7 +14,7 @@ public class FoyerServiceImpl implements IFoyerService{
     private FoyerRepository foyerRepository;
 
     @Override
-    public List<Foyer> findAllFoyers() {
+    public List<Foyer> retrieveAllFoyers() {
         return foyerRepository.findAll();
     }
 

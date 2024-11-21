@@ -20,7 +20,7 @@ public class FoyerRestController {
     @Operation(description = "Recupérer tous les foyers")
     @GetMapping("retrieve-all-foyers")
     public List<Foyer> retrieveAllFoyers() {
-        return foyerService.findAllFoyers();
+        return foyerService.retrieveAllFoyers();
     }
 
     //http://localhost:8089/foyer/foyerU/retrieve-foyer/2
@@ -39,15 +39,15 @@ public class FoyerRestController {
 
     //http://localhost:8089/foyer/foyerU/delete-foyer/4
     @Operation(description = "Supprimer un foyer")
-    @DeleteMapping("delete-foyer/{foyer-id}")
-    public void deleteFoyer(@PathVariable("foyer-id") Long foyerId) {
+    @DeleteMapping("remove-foyer/{foyer-id}")
+    public void removeFoyer(@PathVariable("foyer-id") Long foyerId) {
         foyerService.removeFoyer(foyerId);
     }
 
     //http://localhost:8089/foyer/foyerU/modify-foyer
     @Operation(description = "Modifier un foyer")
-    @PutMapping("modify-foyer")
-    public Foyer modifyFoyer(@RequestBody Foyer foyer) {
+    @PutMapping("update-foyer")
+    public Foyer updateFoyer(@RequestBody Foyer foyer) {
         return foyerService.updateFoyer(foyer);
     }
 }

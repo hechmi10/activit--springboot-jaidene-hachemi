@@ -39,15 +39,15 @@ public class EtudiantRestController {
 
     //http://localhost:8089/foyer/etudiant/modify-etudiant
     @Operation(description = "Modifier un étudiant")
-    @PutMapping("/modify-etudiant")
-    public Etudiant modifyEtudiant(@RequestBody Etudiant etudiant) {
+    @PutMapping("/update-etudiant")
+    public Etudiant updateEtudiant(@RequestBody Etudiant etudiant) {
         return etudiantService.updateEtudiant(etudiant);
     }
 
     //http://localhost:8089/foyer/etudiant/delete-etudiant/1
     @Operation(description = "Supprimer un étudiant par son ID")
-    @DeleteMapping("/delete-etudiant/{etudiant-id}")
-    public void deleteEtudiantById(@PathVariable("etudiant-id") Long etudiantId) {
+    @DeleteMapping("/remove-etudiant/{etudiant-id}")
+    public void removeEtudiant(@PathVariable("etudiant-id") Long etudiantId) {
         etudiantService.removeEtudiant(etudiantId);
     }
 }

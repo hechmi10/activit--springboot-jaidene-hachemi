@@ -20,7 +20,7 @@ public class BlocRestController {
     @Operation(description = "Récupération de tous les blocs")
     @GetMapping("/retrieve-all-blocs")
     public List<Bloc> retrieveAllBlocs() {
-        return blocService.findAllBlocs();
+        return blocService.retrieveAllBlocs();
     }
 
     //http://localhost:8089/foyer/bloc/retrieve-bloc/1
@@ -39,15 +39,15 @@ public class BlocRestController {
 
     //http://localhost:8089/foyer/bloc/delete-bloc/1
     @Operation(description = "Suppression d'un bloc par son ID")
-    @DeleteMapping("/delete-bloc/{bloc-id}")
-    public void deleteBloc(@PathVariable("bloc-id") Long blocId) {
+    @DeleteMapping("/remove-bloc/{bloc-id}")
+    public void removeBloc(@PathVariable("bloc-id") Long blocId) {
         blocService.removeBloc(blocId);
     }
 
     //http:localhost:8089/foyer/bloc/modify-bloc
     @Operation(description = "Modifier un bloc")
-    @PutMapping("/modify-bloc")
-    public Bloc modifyBloc(@RequestBody Bloc bloc) {
+    @PutMapping("/update-bloc")
+    public Bloc updateBloc(@RequestBody Bloc bloc) {
         return blocService.updateBloc(bloc);
     }
 }

@@ -14,7 +14,7 @@ public class UniversiteServiceImpl implements IUniversiteService{
     private UniversiteRepository universiteRepository;
 
     @Override
-    public List<Universite> findAllUniversites() {
+    public List<Universite> retrieveAllUniversites() {
         return universiteRepository.findAll();
     }
 

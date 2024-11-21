@@ -21,7 +21,7 @@ public class ReservationRestController {
     @Operation(description="Récupérer tous les réservations")
     @GetMapping("/retrieve-all-reservations")
     public List<Reservation> retrieveAllReservations() {
-        return reservationService.findAllReservations();
+        return reservationService.retrieveAllReservations();
     }
 
     //http://localhost:8089/foyer/reservations/retrieve-reservation/5
@@ -33,21 +33,21 @@ public class ReservationRestController {
 
     //http://localhost:8089/foyer/reservations/add-reservation
     @Operation(description="Ajouter une réservation")
-    @PostMapping("/add-reservation")
-    public Reservation addReservation(@RequestBody Reservation reservation){
+    @PostMapping("/save-reservation")
+    public Reservation saveReservation(@RequestBody Reservation reservation){
         return reservationService.saveReservation(reservation);
     }
 
     //http://localhost:8089/foyer/reservation/delete-reservation/5
     @Operation(description="Supprimer une réservation")
-    @DeleteMapping("/delete-reservation/{reservation-id}")
-    public void deleteReservation(@PathVariable("reservation-id") String reservationId){
+    @DeleteMapping("/remove-reservation/{reservation-id}")
+    public void removeReservation(@PathVariable("reservation-id") String reservationId){
         reservationService.removeReservation(reservationId);
     }
 
     //http://localhost:8089/foyer/reservation/modify-reservation
     @Operation(description="Modifier une réservation")
-    @PutMapping("/modify-reservation")
+    @PutMapping("/update-reservation")
     public Reservation updateReservation(@RequestBody Reservation reservation){
         return reservationService.updateReservation(reservation);
     }

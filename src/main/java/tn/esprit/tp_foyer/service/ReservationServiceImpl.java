@@ -15,7 +15,7 @@ public class ReservationServiceImpl implements IReservationService{
     private ReservationRepository reservationRepository;
 
     @Override
-    public List<Reservation> findAllReservations() {
+    public List<Reservation> retrieveAllReservations() {
         return reservationRepository.findAll();
     }
 
