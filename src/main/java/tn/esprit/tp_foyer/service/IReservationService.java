@@ -8,6 +8,6 @@ public interface IReservationService {
     List<Reservation> findAllReservations();
     Reservation retrieveReservation(String id);
     Reservation saveReservation(Reservation reservation);
-    Reservation updateReservation(Reservation reservation,String id);
+    Reservation updateReservation(Reservation reservation);
     void removeReservation(String id);
 }

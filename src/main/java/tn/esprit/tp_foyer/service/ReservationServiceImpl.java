@@ -31,11 +31,8 @@ public class ReservationServiceImpl implements IReservationService{
     }
 
     @Override
-    public Reservation updateReservation(Reservation reservation,String id) {
-        if(reservation.getIdReservation().equals(id)) {
-            return reservationRepository.save(reservation);
-        }
-        return null;
+    public Reservation updateReservation(Reservation reservation) {
+        return reservationRepository.save(reservation);
     }
 
     @Override

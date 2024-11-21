@@ -29,11 +29,8 @@ public class EtudiantServiceImpl implements IEtudiantService{
     }
 
     @Override
-    public Etudiant updateEtudiant(Etudiant et,Long id) {
-        if(et.getIdEtudiant()==id) {
-            return etudiantRepository.save(et);
-        }
-        return null;
+    public Etudiant updateEtudiant(Etudiant et) {
+        return etudiantRepository.save(et);
     }
 
     @Override

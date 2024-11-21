@@ -38,10 +38,10 @@ public class EtudiantRestController {
     }
 
     //http://localhost:8089/foyer/etudiant/modify-etudiant
-    @Operation(description = "Modifier un étudiant par son ID")
-    @PutMapping("/modify-etudiant/{etudiant-id}")
-    public Etudiant modifyEtudiant(@RequestBody Etudiant etudiant,@PathVariable("etudiant-id") Long id) {
-        return etudiantService.updateEtudiant(etudiant,id);
+    @Operation(description = "Modifier un étudiant")
+    @PutMapping("/modify-etudiant")
+    public Etudiant modifyEtudiant(@RequestBody Etudiant etudiant) {
+        return etudiantService.updateEtudiant(etudiant);
     }
 
     //http://localhost:8089/foyer/etudiant/delete-etudiant/1

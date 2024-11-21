@@ -45,9 +45,9 @@ public class ChambreRestController {
     }
 
     //http:localhost:8089/foyer/chambre/modify-chambre
-    @Operation(description="Modification d'une chambre par son ID")
+    @Operation(description="Modification d'une chambre")
     @PutMapping("/modify-chambre")
-    public Chambre modifyChambre(@RequestBody Chambre chambre,Long id) {
-        return chambreService.updateChambre(chambre,id);
+    public Chambre modifyChambre(@RequestBody Chambre chambre) {
+        return chambreService.updateChambre(chambre);
     }
 }

@@ -45,9 +45,9 @@ public class BlocRestController {
     }
 
     //http:localhost:8089/foyer/bloc/modify-bloc
-    @Operation(description = "Modifier un bloc par son ID")
+    @Operation(description = "Modifier un bloc")
     @PutMapping("/modify-bloc")
-    public Bloc modifyBloc(@RequestBody Bloc bloc,Long blocId) {
-        return blocService.updateBloc(bloc,blocId);
+    public Bloc modifyBloc(@RequestBody Bloc bloc) {
+        return blocService.updateBloc(bloc);
     }
 }

@@ -8,7 +8,7 @@ public interface IEtudiantService {
     List<Etudiant> retrieveAllEtudiants();
     Etudiant retrieveEtudiant(Long id);
     Etudiant createEtudiant(Etudiant et);
-    Etudiant updateEtudiant(Etudiant et,Long id);
+    Etudiant updateEtudiant(Etudiant et);
     void removeEtudiant(Long id);
 
 }

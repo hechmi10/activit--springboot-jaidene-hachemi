@@ -8,6 +8,6 @@ public interface IFoyerService {
     List<Foyer> findAllFoyers();
     Foyer retrieveFoyer(Long id);
     Foyer saveFoyer(Foyer foyer);
-    Foyer updateFoyer(Foyer foyer,Long id);
+    Foyer updateFoyer(Foyer foyer);
     void removeFoyer(Long id);
 }

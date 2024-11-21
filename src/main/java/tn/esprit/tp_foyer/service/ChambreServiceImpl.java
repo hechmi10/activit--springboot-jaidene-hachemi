@@ -30,11 +30,8 @@ public class ChambreServiceImpl implements IChambreService{
     }
 
     @Override
-    public Chambre updateChambre(Chambre c,Long id) {
-        if(c.getIdChambre()==id) {
-            return chambreRepository.save(c);
-        }
-        return null;
+    public Chambre updateChambre(Chambre c) {
+        return chambreRepository.save(c);
     }
 
     @Override

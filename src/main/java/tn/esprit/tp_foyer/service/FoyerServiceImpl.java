@@ -29,11 +29,8 @@ public class FoyerServiceImpl implements IFoyerService{
     }
 
     @Override
-    public Foyer updateFoyer(Foyer foyer,Long id) {
-        if(foyer.getIdFoyer()==id) {
+    public Foyer updateFoyer(Foyer foyer) {
             return foyerRepository.save(foyer);
-        }
-        return null;
     }
 
     @Override

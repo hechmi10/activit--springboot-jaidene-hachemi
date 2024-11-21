@@ -8,6 +8,6 @@ public interface IUniversiteService {
     List<Universite> findAllUniversites();
     Universite retrieveUniversite(Long id);
     Universite saveUniversite(Universite universite);
-    Universite updateUniversite(Universite universite,Long id);
+    Universite updateUniversite(Universite universite);
     void removeUniversite(Long id);
 }

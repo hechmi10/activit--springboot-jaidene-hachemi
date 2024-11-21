@@ -8,6 +8,6 @@ public interface IChambreService {
     List<Chambre> retrieveAllChambres();
     Chambre retrieveChambre(Long id);
     Chambre createChambre(Chambre c);
-    Chambre updateChambre(Chambre c,Long id);
+    Chambre updateChambre(Chambre c);
     void removeChambre(Long id);
 }
