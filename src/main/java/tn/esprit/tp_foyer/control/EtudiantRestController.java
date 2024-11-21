@@ -23,6 +23,7 @@ public class EtudiantRestController {
         return etudiantService.retrieveAllEtudiants();
     }
 
+    //http://localhost:8089/foyer/etudiant/add-etudiants
     @Operation(description="Ajouter des étudiants")
     @PostMapping("/add-etudiants")
     public List<Etudiant> addEtudiants(@RequestBody List<Etudiant> etudiants) {
@@ -36,12 +37,7 @@ public class EtudiantRestController {
         return etudiantService.retrieveEtudiant(etudiantId);
     }
 
-    //http://localhost:8089/foyer/etudiant/add-etudiant
-    @Operation(description = "Ajouter un étudiant")
-    @PostMapping("/add-etudiant")
-    public Etudiant addEtudiant(@RequestBody Etudiant etudiant) {
-        return etudiantService.createEtudiant(etudiant);
-    }
+
 
     //http://localhost:8089/foyer/etudiant/modify-etudiant
     @Operation(description = "Modifier un étudiant")
