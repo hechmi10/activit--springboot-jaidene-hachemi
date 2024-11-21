@@ -30,7 +30,7 @@ public class FoyerServiceImpl implements IFoyerService{
 
     @Override
     public Foyer updateFoyer(Foyer foyer) {
-            return foyerRepository.save(foyer);
+        return foyerRepository.save(foyer);
     }
 
     @Override
