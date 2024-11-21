@@ -9,7 +9,7 @@ import tn.esprit.tp_foyer.service.IEtudiantService;
 
 import java.util.List;
 
-@Tag(name="Gestion des étudiants")
+@Tag(name="Gestion des étudiants")//Swagger
 @RestController
 @AllArgsConstructor
 @RequestMapping("/etudiant")
@@ -21,6 +21,12 @@ public class EtudiantRestController {
     @GetMapping("/retrieve-all-etudiants")
     public List<Etudiant> retrieveAllEtudiants() {
         return etudiantService.retrieveAllEtudiants();
+    }
+
+    @Operation(description="Ajouter des étudiants")
+    @PostMapping("/add-etudiants")
+    public List<Etudiant> addEtudiants(@RequestBody List<Etudiant> etudiants) {
+        return etudiantService.addEtudiants(etudiants);
     }
 
     //http://localhost:8089/foyer/etudiant/retrieve-etudiant/4

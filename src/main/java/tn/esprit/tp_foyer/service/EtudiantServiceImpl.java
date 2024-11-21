@@ -19,6 +19,11 @@ public class EtudiantServiceImpl implements IEtudiantService{
     }
 
     @Override
+    public List<Etudiant> addEtudiants(List<Etudiant> etudiants) {
+        return etudiantRepository.saveAll(etudiants);
+    }
+
+    @Override
     public Etudiant retrieveEtudiant(Long id) {
         return etudiantRepository.findById(id).isPresent() ? etudiantRepository.findById(id).get() : null;
     }
