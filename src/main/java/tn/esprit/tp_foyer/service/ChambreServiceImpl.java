@@ -25,7 +25,7 @@ public class ChambreServiceImpl implements IChambreService{
     }
 
     @Override
-    public Chambre createChambre(Chambre c) {
+    public Chambre addChambre(Chambre c) {
         return chambreRepository.save(c);
     }
 
@@ -34,8 +34,4 @@ public class ChambreServiceImpl implements IChambreService{
         return chambreRepository.save(c);
     }
 
-    @Override
-    public void removeChambre(Long id) {
-        chambreRepository.deleteById(id);
-    }
 }

@@ -35,14 +35,7 @@ public class UniversiteRestController {
     @Operation(description="Ajouter une université")
     @PostMapping("/save-universite")
     public Universite saveUniversite(@RequestBody Universite universite) {
-        return universiteService.saveUniversite(universite);
-    }
-
-    //http://localhost:8089/foyer/universite/delete-universite/7
-    @Operation(description="Supprimer une université par son ID")
-    @DeleteMapping("/remove-universite/{universite-id}")
-    public void removeUniversite(@PathVariable("universite-id") Long universiteId) {
-        universiteService.removeUniversite(universiteId);
+        return universiteService.addUniversite(universite);
     }
 
     //http://localhost:8089/foyer/universite/modify-universite

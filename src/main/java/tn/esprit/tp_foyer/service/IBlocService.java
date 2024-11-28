@@ -5,9 +5,10 @@ import tn.esprit.tp_foyer.entity.Bloc;
 import java.util.List;
 
 public interface IBlocService {
-    List<Bloc> retrieveAllBlocs();
+    List<Bloc> retrieveBlocs();
     Bloc retrieveBloc(Long id);
-    Bloc saveBloc(Bloc bloc);
+    Bloc addBloc(Bloc bloc);
     Bloc updateBloc(Bloc bloc);
     void removeBloc(Long id);
+    Bloc affecterChambresABloc(List<Long> numChambre,long idBloc);
 }

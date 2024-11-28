@@ -34,15 +34,10 @@ public class ChambreRestController {
     @Operation(description = "Ajout d'une chambre")
     @PostMapping("/create-chambre")
     public Chambre createChambre(@RequestBody Chambre chambre) {
-        return chambreService.createChambre(chambre);
+        return chambreService.addChambre(chambre);
     }
 
-    //http://localhost:8089/foyer/chambre/remove-chambre/5
-    @Operation(description = "Suppression d'une chambre par son ID")
-    @DeleteMapping("/remove-chambre/{chambre-id}")
-    public void removeChambre(@PathVariable("chambre-id") Long id) {
-        chambreService.removeChambre(id);
-    }
+
 
     //http:localhost:8089/foyer/chambre/modify-chambre
     @Operation(description="Modification d'une chambre")

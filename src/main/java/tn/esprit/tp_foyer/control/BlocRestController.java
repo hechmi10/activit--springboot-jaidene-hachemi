@@ -20,7 +20,7 @@ public class BlocRestController {
     @Operation(description = "Récupération de tous les blocs")
     @GetMapping("/retrieve-all-blocs")
     public List<Bloc> retrieveAllBlocs() {
-        return blocService.retrieveAllBlocs();
+        return blocService.retrieveBlocs();
     }
 
     //http://localhost:8089/foyer/bloc/retrieve-bloc/1
@@ -34,7 +34,7 @@ public class BlocRestController {
     @Operation(description = "Ajout d'un bloc")
     @PostMapping("/save-bloc")
     public Bloc saveBloc(@RequestBody Bloc bloc) {
-        return blocService.saveBloc(bloc);
+        return blocService.addBloc(bloc);
     }
 
     //http://localhost:8089/foyer/bloc/delete-bloc/1
