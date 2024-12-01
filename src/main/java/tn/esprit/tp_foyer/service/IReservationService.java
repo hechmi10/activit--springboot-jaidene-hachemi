@@ -10,4 +10,5 @@ public interface IReservationService {
     Reservation saveReservation(Reservation reservation);
     Reservation updateReservation(Reservation reservation);
     void removeReservation(String id);
+    Reservation ajouterReservation(long idBloc,long cinEtudiant);
 }
