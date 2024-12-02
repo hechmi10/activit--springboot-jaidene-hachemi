@@ -39,28 +39,16 @@ public class ChambreServiceImpl implements IChambreService{
         return chambreRepository.save(c);
     }
 
+    //Keyword
     @Override
     public List<Chambre> getChambresParBlocEtType(long idBloc, TypeChambre typeC) {
-        Bloc b=blocRepository.findById(idBloc).orElse(null);
-        List<Chambre> chambres = chambreRepository.findAllByBlocIdBlocAndTypeChambre(idBloc,typeC);
-        if(b.getChambres()==null) {
-            for (Chambre c : chambres) {
-                if (c.getBloc() == null)
-                    throw new RuntimeException("Chambres non existants par bloc et type");
-            }
-        }
-        for(Chambre c:chambres){
-            c.setBloc(b);
-        }
-        b.setChambres((Set<Chambre>) chambres);
-        blocRepository.save(b);
-        chambreRepository.saveAll(chambres);
-        return chambres;
+        return chambreRepository.findByBlocIdBlocAndTypeC(idBloc, typeC);
     }
 
+    //JPQL
     //@Override
-    //    public List<Chambre> getChambresParBlocEtType(long idBloc, TypeChambre typeC) {
-    //        return chambreRepository.getChambresParBlocEtType(idBloc,typeC);
-    //    }
+    //public List<Chambre> getChambresParBlocEtType(long idBloc, TypeChambre typeC) {
+    //    return chambreRepository.getChambresParBlocEtType(idBloc,typeC);
+    //}
 
 }

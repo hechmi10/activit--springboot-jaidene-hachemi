@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.tp_foyer.entity.Chambre;
+import tn.esprit.tp_foyer.entity.TypeChambre;
 import tn.esprit.tp_foyer.service.IChambreService;
 
 import java.util.List;
@@ -44,5 +45,10 @@ public class ChambreRestController {
     @PutMapping("/update-chambre")
     public Chambre updateChambre(@RequestBody Chambre chambre) {
         return chambreService.updateChambre(chambre);
+    }
+
+    @GetMapping("getChambresParBlocEtType/bloc/{idBloc}/type/{typeC}")
+    public List<Chambre> getChambresParBlocEtType(@PathVariable("idBloc") long idBloc, @PathVariable("typeC") TypeChambre typeC) {
+        return chambreService.getChambresParBlocEtType(idBloc,typeC);
     }
 }

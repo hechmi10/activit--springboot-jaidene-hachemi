@@ -46,14 +46,14 @@ public class UniversiteRestController {
     }
 
     @Operation(description = "Affecter un foyer")
-    @PutMapping("/affecter-foyer")
-    public Universite affecterFoyerAUniversite(@RequestBody long idFoyer,@RequestBody String nomUniversite) {
+    @PostMapping("/affecter-foyer/{idFoyer}/{nomUniversite}")
+    public Universite affecterFoyerAUniversite(@PathVariable("idFoyer") long idFoyer,@PathVariable("nomUniversite") String nomUniversite) {
         return universiteService.affecterFoyerAUniversite(idFoyer, nomUniversite);
     }
 
     @Operation(description = "Désaffecter un foyer")
-    @PutMapping("/desaffecter-foyer")
-    public Universite desaffecterFoyerAUniversite(@RequestBody long idUniversite) {
+    @PostMapping("/desaffecter-foyer/{idUniversite}")
+    public Universite desaffecterFoyerAUniversite(@PathVariable("idUniversite") long idUniversite) {
         return universiteService.desaffecterFoyerUniversite(idUniversite);
     }
 }

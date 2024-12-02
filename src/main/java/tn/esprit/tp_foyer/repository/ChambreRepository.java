@@ -16,7 +16,7 @@ import java.util.Set;
 public interface ChambreRepository extends JpaRepository<Chambre, Long> {
     Set<Chambre> findAllByNumeroChambre(List<Long> numerosChambre);
 
-    List<Chambre> findAllByBlocIdBlocAndTypeChambre(long idBloc, TypeChambre typeC);
+    List<Chambre> findByBlocIdBlocAndTypeC(long idBloc, TypeChambre typeC);
 
     @Query("Select c from Chambre c where c.bloc.idBloc=:idBloc and c.TypeC=:typeC")
     List<Chambre> getChambresParBlocEtType(@Param("idBloc") long idBloc,@Param("typeC") TypeChambre typeC);
