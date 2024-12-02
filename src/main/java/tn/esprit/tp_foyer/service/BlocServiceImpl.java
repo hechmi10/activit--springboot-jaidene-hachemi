@@ -1,15 +1,12 @@
 package tn.esprit.tp_foyer.service;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.tp_foyer.entity.Bloc;
 import tn.esprit.tp_foyer.entity.Chambre;
 import tn.esprit.tp_foyer.repository.BlocRepository;
 import tn.esprit.tp_foyer.repository.ChambreRepository;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -46,9 +43,9 @@ public class BlocServiceImpl implements IBlocService{
     }
 
     @Override
-    public Bloc affecterChambresABloc(List<Long> numChambres, long idBloc) {
+    public Bloc affecterChambresABloc(List<Long> numChambres, Long idBloc) {
         Bloc b=blocRepository.findById(idBloc).orElse(null);
-        Set<Chambre> chambres=chambreRepository.findAllByNumeroChambre(numChambres);
+        Set<Chambre> chambres=chambreRepository.findAllByNumeroChambreIn(numChambres);
         if(chambres.size()!=numChambres.size()){
             throw new RuntimeException("Une ou plusieurs chambres sont introuvables");
         }

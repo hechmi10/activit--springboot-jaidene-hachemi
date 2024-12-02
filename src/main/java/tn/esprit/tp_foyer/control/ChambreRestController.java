@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.tp_foyer.entity.Chambre;
+import tn.esprit.tp_foyer.entity.Reservation;
 import tn.esprit.tp_foyer.entity.TypeChambre;
 import tn.esprit.tp_foyer.service.IChambreService;
 
@@ -47,8 +48,21 @@ public class ChambreRestController {
         return chambreService.updateChambre(chambre);
     }
 
+    @Operation(description="Récuperer des chambres par son bloc et type")
     @GetMapping("getChambresParBlocEtType/bloc/{idBloc}/type/{typeC}")
     public List<Chambre> getChambresParBlocEtType(@PathVariable("idBloc") long idBloc, @PathVariable("typeC") TypeChambre typeC) {
         return chambreService.getChambresParBlocEtType(idBloc,typeC);
+    }
+
+    @Operation(description="Recupérer des chambres par leur nom de l'université")
+    @GetMapping("/getChambresParNomUniversitaire/{nomUniversite}")
+    public List<Chambre> getChambresParNomUniversitaire(@PathVariable("nomUniversite") String nomUniversite){
+        return chambreService.getChambresParNomUniversite(nomUniversite);
+    }
+
+    @Operation(description = "Récuperer des chambres non resérvés par leur nom d'université et leur type de chambre")
+    @GetMapping("/getChambresNonReserveesParNomUniversiteEtTypeChambre/{nomUniversite}/{typeC}")
+    public List<Chambre> getChambresNonReserveesParNomUniversiteEtTypeChambre(@PathVariable("nomUniversite") String nomUniversite,@PathVariable("typeC") TypeChambre typeC){
+        return chambreService.getChambreNonReservesParNomUniversiteEtTypeChambre(nomUniversite,typeC);
     }
 }

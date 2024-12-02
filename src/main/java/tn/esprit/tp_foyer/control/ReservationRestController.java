@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import tn.esprit.tp_foyer.entity.Reservation;
 import tn.esprit.tp_foyer.service.IReservationService;
 
+import java.sql.Date;
 import java.util.List;
 
 @Tag(name="Gestion des réservations")
@@ -50,5 +51,23 @@ public class ReservationRestController {
     @PutMapping("/update-reservation")
     public Reservation updateReservation(@RequestBody Reservation reservation){
         return reservationService.updateReservation(reservation);
+    }
+
+    @Operation(description="Ajouter une réservation")
+    @PostMapping("/ajouter-reservation/{idBloc}/{cinEtudiant}")
+    public Reservation ajouterReservation(@PathVariable("idBloc") Long idBloc,@PathVariable("cinEtudiant") Long cinEtudiant){
+        return reservationService.ajouterReservation(idBloc, cinEtudiant);
+    }
+
+    @Operation(description="Annuler une réservation")
+    @PostMapping("/annuler-reservation/{cinEtudiant}")
+    public Reservation annulerReservation(@PathVariable("cinEtudiant") Long cinEtudiant){
+        return reservationService.annulerReservation(cinEtudiant);
+    }
+
+    @Operation(description="Récupérer des réservations par leur année universitaire et nom de leur université")
+    @GetMapping("getReservationParAnneeUniversitaireEtNomUniversite/{anneeUniversitaire}/{nomUniversite}")
+    public List<Reservation> getReservationParAnneeUniversitaireEtNomUniversite(@PathVariable("anneeUniversitaire") Date anneeUniversitaire, @PathVariable("nomUniversite") String nomUniversite){
+        return reservationService.getReservationParAnneeUniversitaireEtNomUniversite(anneeUniversitaire, nomUniversite);
     }
 }

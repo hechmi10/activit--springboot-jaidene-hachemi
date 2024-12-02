@@ -11,4 +11,6 @@ public interface IChambreService {
     Chambre addChambre(Chambre c);
     Chambre updateChambre(Chambre c);
     List<Chambre> getChambresParBlocEtType(long idBloc, TypeChambre typeC);
+    List<Chambre> getChambresParNomUniversite(String nomUniversite);
+    List<Chambre> getChambreNonReservesParNomUniversiteEtTypeChambre(String nomUniversite,TypeChambre typeC);
 }
