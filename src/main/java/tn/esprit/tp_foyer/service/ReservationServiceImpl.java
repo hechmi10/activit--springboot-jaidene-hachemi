@@ -49,7 +49,7 @@ public class ReservationServiceImpl implements IReservationService{
     @Override
     public Reservation ajouterReservation(long idBloc, long cinEtudiant) {
         Bloc b = blocRepository.findById(idBloc).orElse(null);
-        Etudiant e=etudiantRepository.findById(cinEtudiant).orElse(null);
+        Etudiant e=etudiantRepository.findByCin(cinEtudiant).orElse(null);
         return null;
     }
 }

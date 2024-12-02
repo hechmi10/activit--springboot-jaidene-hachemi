@@ -9,6 +9,7 @@ import tn.esprit.tp_foyer.repository.FoyerRepository;
 import tn.esprit.tp_foyer.repository.UniversiteRepository;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 @AllArgsConstructor
@@ -44,17 +45,17 @@ public class FoyerServiceImpl implements IFoyerService{
 
     @Override
     public Foyer ajouterFoyerEtAffecterAUniversite(Foyer foyer, Long idUniversite) {
-        Universite u = universiteRepository.findById(idUniversite).orElse(null);
-        if(foyer.getBlocs()!=null) {
-            throw new RuntimeException("Foyer déja ajouté et affecté a cet université");
-        }
-        for(Bloc b : foyer.getBlocs()) {
-            b.setFoyer(foyer);
-        }
+        Universite u=universiteRepository.findById(idUniversite).orElse(null);
         foyer.setUniversite(u);
-        foyerRepository.save(foyer);
-        return foyer;
-
+        if(foyer.getBlocs()!=null){
+            for (Bloc b : foyer.getBlocs()) {
+                b.setFoyer(foyer);
+            }
+        }
+        Foyer f = foyerRepository.save(foyer);
+        u.setFoyer(f);
+        universiteRepository.save(u);
+        return f;
     }
 
 }

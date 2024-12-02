@@ -45,9 +45,9 @@ public class UniversiteServiceImpl implements IUniversiteService{
             throw new RuntimeException("Association déjà existant pour cet foyer et cette université");
         }
         u.setFoyer(f);
-        f.setUniversite(u);
+        //f.setUniversite(u);
         universiteRepository.save(u);
-        foyerRepository.save(f);
+        //foyerRepository.save(f);
         return u;
     }
 
@@ -59,9 +59,9 @@ public class UniversiteServiceImpl implements IUniversiteService{
         }
         Foyer f=u.getFoyer();
         u.setFoyer(null);
-        f.setUniversite(null);
+        //f.setUniversite(null);
         universiteRepository.save(u);
-        foyerRepository.save(f);
+        //foyerRepository.save(f);
         return u;
     }
 

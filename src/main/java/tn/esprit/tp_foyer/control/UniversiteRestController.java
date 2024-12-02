@@ -44,4 +44,16 @@ public class UniversiteRestController {
     public Universite updateUniversite(@RequestBody Universite universite) {
         return universiteService.updateUniversite(universite);
     }
+
+    @Operation(description = "Affecter un foyer")
+    @PutMapping("/affecter-foyer")
+    public Universite affecterFoyerAUniversite(@RequestBody long idFoyer,@RequestBody String nomUniversite) {
+        return universiteService.affecterFoyerAUniversite(idFoyer, nomUniversite);
+    }
+
+    @Operation(description = "Désaffecter un foyer")
+    @PutMapping("/desaffecter-foyer")
+    public Universite desaffecterFoyerAUniversite(@RequestBody long idUniversite) {
+        return universiteService.desaffecterFoyerUniversite(idUniversite);
+    }
 }

@@ -48,21 +48,21 @@ public class BlocServiceImpl implements IBlocService{
     @Override
     public Bloc affecterChambresABloc(List<Long> numChambres, long idBloc) {
         Bloc b=blocRepository.findById(idBloc).orElse(null);
-        Set<Chambre> cList=chambreRepository.findAllByNumeroChambre(numChambres);
-        if(cList.size()!=numChambres.size()){
+        Set<Chambre> chambres=chambreRepository.findAllByNumeroChambre(numChambres);
+        if(chambres.size()!=numChambres.size()){
             throw new RuntimeException("Une ou plusieurs chambres sont introuvables");
         }
-        for(Chambre c:cList){
-            if(c.getBloc()!=null || c.getBloc().getIdBloc()!=idBloc) {
-                throw new RuntimeException("Le chambre "+c.getNumeroChambre()+" est déjà affecté dans le bloc");
+        for(Chambre c:chambres){
+            if(c.getBloc()!=null && c.getBloc().getIdBloc()!=idBloc) {
+                throw new RuntimeException("Le chambre "+c.getNumeroChambre()+" est déjà affecté dans un autre bloc");
             }
         }
-        for(Chambre c:cList){
+        for(Chambre c:chambres){
             c.setBloc(b);
-        }
-        b.getChambres().addAll(cList);
-        blocRepository.save(b);
-        chambreRepository.saveAll(cList);
+       }
+        //b.getChambres().addAll(chambres);
+        //blocRepository.save(b);
+        chambreRepository.saveAll(chambres);
         return b;
     }
 }
