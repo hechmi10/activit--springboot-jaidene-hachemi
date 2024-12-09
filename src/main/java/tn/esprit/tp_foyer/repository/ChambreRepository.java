@@ -13,7 +13,7 @@ import java.util.Set;
 
 @Repository
 public interface ChambreRepository extends JpaRepository<Chambre, Long> {
-    Set<Chambre> findAllByNumeroChambreIn(List<Long> numerosChambre);
+    Set<Chambre> findAllByNumeroChambreIn(List<Long> numeroChambre);
 
     List<Chambre> findByBlocIdBlocAndTypeC(long idBloc, TypeChambre typeC);
 

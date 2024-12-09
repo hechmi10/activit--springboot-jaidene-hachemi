@@ -1,6 +1,8 @@
 package tn.esprit.tp_foyer.service;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import tn.esprit.tp_foyer.entity.Chambre;
 import tn.esprit.tp_foyer.entity.TypeChambre;
@@ -10,9 +12,11 @@ import tn.esprit.tp_foyer.repository.ChambreRepository;
 import tn.esprit.tp_foyer.repository.UniversiteRepository;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 @AllArgsConstructor
 public class ChambreServiceImpl implements IChambreService{
@@ -70,6 +74,30 @@ public class ChambreServiceImpl implements IChambreService{
     public List<Chambre> getChambreNonReservesParNomUniversiteEtTypeChambre(String nomUniversite, TypeChambre typeC) {
         Date currentYear = new Date(System.currentTimeMillis());
         return chambreRepository.findChambresNonReserveParNomUniversiteEtTypeC(nomUniversite,typeC,currentYear);
+    }
+
+    @Scheduled(cron="0 */5 * * * *")
+    public void pourcentageChambreParTypeChambre() {
+        List<Chambre> chambres=chambreRepository.findAll();
+        List<Chambre> chambresSimples=new ArrayList<>();
+        List<Chambre> chambresDoubles=new ArrayList<>();
+        List<Chambre> chambresTriples=new ArrayList<>();
+        log.info("Nombre total des chambres: {}",chambres.size());
+        for(Chambre c:chambres){
+            if(c.getTypeC()==TypeChambre.SIMPLE){
+                chambresSimples.add(c);
+                Double p1=(chambresSimples.size()/chambres.size())*100.0;
+                log.info("Le pourcentage pour les chambres de type SIMPLE est: {}",p1);
+            }else if(c.getTypeC()==TypeChambre.DOUBLE){
+                chambresDoubles.add(c);
+                Double p2=(chambresDoubles.size()/chambres.size())*100.0;
+                log.info("Le pourcentage pour les chambres de type DOUBLE est: {}",p2);
+            }else{
+                chambresTriples.add(c);
+                Double p3=(chambresTriples.size()/chambres.size())*100.0;
+                log.info("Le pourcentage pour les chambres de type TRIPLE est: {}",p3);
+            }
+        }
     }
 
 

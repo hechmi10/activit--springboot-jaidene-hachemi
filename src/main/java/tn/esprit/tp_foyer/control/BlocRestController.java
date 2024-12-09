@@ -52,8 +52,8 @@ public class BlocRestController {
     }
 
     @Operation(description="Affecter des chambres à un bloc")
-    @PostMapping("/affecter-chambres-a-bloc/{numChambres}/{idBloc}")
-    public Bloc affecterChambresABloc(@PathVariable("numChambres") List<Long> numChambres,@PathVariable("idBloc") Long idBloc){
+    @PostMapping("/affecter-chambres-a-bloc/")
+    public Bloc affecterChambresABloc(@RequestParam List<Long> numChambres,@RequestParam Long idBloc){
         return blocService.affecterChambresABloc(numChambres,idBloc);
     }
 }
