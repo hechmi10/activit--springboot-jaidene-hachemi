@@ -100,5 +100,29 @@ public class ChambreServiceImpl implements IChambreService{
         }
     }
 
+    @Scheduled(cron = "0 */5 * * * *")
+    void nbPlacesDisponibleParChambreAnneeEnCours(){
+        List<Chambre> chambres=chambreRepository.findAll();
+        for (Chambre chambre : chambres) {
+            int availablePlaces = chambre.getAvailablePlaces();
+            String logMessage;
+            if (availablePlaces == 0) {
+                logMessage = "La chambre " + chambre.getTypeC() + " " + chambre.getNumeroChambre() + " est complète";
+            } else {
+                logMessage = "Le nombre de place disponible pour la chambre " + chambre.getTypeC() + " " + chambre.getNumeroChambre() + " est " + availablePlaces;
+            }
+            log.info(logMessage);
+        }
+
+    }
+
+    public String checkRoomAvailability(String roomName, int roomId, int availablePlaces) {
+        if (availablePlaces == 0) {
+            return "La chambre " + roomName + " " + roomId + " est complète";
+        } else {
+            return "Le nombre de place disponible pour la chambre " + roomName + " " + roomId + " est " + availablePlaces;
+        }
+    }
+
 
 }
