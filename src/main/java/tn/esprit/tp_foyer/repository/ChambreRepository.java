@@ -28,7 +28,7 @@ public interface ChambreRepository extends JpaRepository<Chambre, Long> {
             "AND c.typeC = :type " +
             "AND NOT EXISTS (SELECT r FROM Reservation r " +
             "                WHERE r.anneeUniversitaire = :currentYear)")
-    public List<Chambre> findChambresNonReserveParNomUniversiteEtTypeC(
+    List<Chambre> findChambresNonReserveParNomUniversiteEtTypeC(
             @Param("nomUniversite") String nomUniversite,
             @Param("type") TypeChambre type,
             @Param("currentYear") Date currentYear);
