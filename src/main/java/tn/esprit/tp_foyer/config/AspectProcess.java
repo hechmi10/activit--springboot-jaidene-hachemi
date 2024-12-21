@@ -29,9 +29,13 @@ public class AspectProcess {
     @Around("execution(* tn.esprit.tp_foyer.service.*.*(..))")
     public Object profile(ProceedingJoinPoint pjp) throws Throwable {
         long start = System.currentTimeMillis();
-        Object obj = pjp.proceed();
-        long elapsedTime = System.currentTimeMillis()-start;
-        log.info("******** Method execution time: {} ms", elapsedTime);
-        return obj;
+        try {
+            return pjp.proceed();
+        }finally {
+            long elapsedTime = System.currentTimeMillis()-start;
+            String methodName = pjp.getSignature().getName();
+            log.info("******** Method [{}] execution time: {} ms",methodName, elapsedTime);
+        }
+
     }
 }
