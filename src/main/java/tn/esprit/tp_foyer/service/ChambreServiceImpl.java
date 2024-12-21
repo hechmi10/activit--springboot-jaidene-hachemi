@@ -84,24 +84,23 @@ public class ChambreServiceImpl implements IChambreService{
         List<Chambre> chambresSimples=new ArrayList<>();
         List<Chambre> chambresDoubles=new ArrayList<>();
         List<Chambre> chambresTriples=new ArrayList<>();
-        log.info("Nombre total des chambres: {}",chambres.size());
-        for(Chambre c:chambres){
-            if(c.getTypeC()==TypeChambre.SIMPLE && !chambres.isEmpty()){
-                chambresSimples.add(c);
-                Double p1=(chambresSimples.size()/chambres.size())*100.0;
-                log.info("Le pourcentage pour les chambres de type SIMPLE est: {}",p1);
-            }else if(c.getTypeC()==TypeChambre.DOUBLE && !chambres.isEmpty()){
-                chambresDoubles.add(c);
-                Double p2=(chambresDoubles.size()/chambres.size())*100.0;
-                log.info("Le pourcentage pour les chambres de type DOUBLE est: {}",p2);
-            }else if(c.getTypeC()==TypeChambre.TRIPLE && !chambres.isEmpty()){
-                chambresTriples.add(c);
-                Double p3=(chambresTriples.size()/chambres.size())*100.0;
-                log.info("Le pourcentage pour les chambres de type TRIPLE est: {}",p3);
-            }else{
-                log.info("Pas de chambres: {}",chambres.size());
+        Map<String,Integer> countByType=new HashMap<>();
+        if(!chambres.isEmpty()){
+            log.info("Nombre total des chambres: {}",chambres.size());
+            for(Chambre c:chambres){
+                String type=String.valueOf(c.getTypeC());
+                countByType.put(type,countByType.getOrDefault(type,0)+1);
             }
+            for(Map.Entry<String,Integer> e:countByType.entrySet()){
+                String type=e.getKey();
+                Integer count=e.getValue();
+                Double pourcentage=(count*100.0)/chambres.size();
+                log.info("Pourcentage des chambres de type {}: {}",type,pourcentage);
+            }
+        }else{
+            log.info("Aucun chambre");
         }
+
     }
 
     @Scheduled(cron = "0 */5 * * * *")
