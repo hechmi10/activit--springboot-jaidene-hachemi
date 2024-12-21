@@ -78,11 +78,16 @@ public class BlocServiceImpl implements IBlocService{
             }else {
                 log.info("La liste des chambres pour ce bloc:");
                 for (Chambre c : b.getChambres()) {
-                    if(b.getChambres().contains(c)){
+                    if (b.getChambres().contains(c)) {
                         log.info("NumChambre: {} type : {}", c.getNumeroChambre(), c.getTypeC());
                     }
                 }
-                //
+                /*b.getChambres().forEach(c->{
+                   if (b.getChambres().contains(c)) {
+                        log.info("NumChambre: {} type : {}", c.getNumeroChambre(), c.getTypeC());
+                    }
+                 }
+                 */
             }
         }
     }

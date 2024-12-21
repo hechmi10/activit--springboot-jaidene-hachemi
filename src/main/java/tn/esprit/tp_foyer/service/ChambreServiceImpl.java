@@ -13,7 +13,9 @@ import tn.esprit.tp_foyer.repository.UniversiteRepository;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -84,18 +86,20 @@ public class ChambreServiceImpl implements IChambreService{
         List<Chambre> chambresTriples=new ArrayList<>();
         log.info("Nombre total des chambres: {}",chambres.size());
         for(Chambre c:chambres){
-            if(c.getTypeC()==TypeChambre.SIMPLE){
+            if(c.getTypeC()==TypeChambre.SIMPLE && !chambres.isEmpty()){
                 chambresSimples.add(c);
                 Double p1=(chambresSimples.size()/chambres.size())*100.0;
                 log.info("Le pourcentage pour les chambres de type SIMPLE est: {}",p1);
-            }else if(c.getTypeC()==TypeChambre.DOUBLE){
+            }else if(c.getTypeC()==TypeChambre.DOUBLE && !chambres.isEmpty()){
                 chambresDoubles.add(c);
                 Double p2=(chambresDoubles.size()/chambres.size())*100.0;
                 log.info("Le pourcentage pour les chambres de type DOUBLE est: {}",p2);
-            }else{
+            }else if(c.getTypeC()==TypeChambre.TRIPLE && !chambres.isEmpty()){
                 chambresTriples.add(c);
                 Double p3=(chambresTriples.size()/chambres.size())*100.0;
                 log.info("Le pourcentage pour les chambres de type TRIPLE est: {}",p3);
+            }else{
+                log.info("Pas de chambres: {}",chambres.size());
             }
         }
     }
