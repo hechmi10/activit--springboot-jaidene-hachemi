@@ -73,15 +73,16 @@ public class BlocServiceImpl implements IBlocService{
         for(Bloc b:blocs){
             log.info("******************************");
             log.info("Bloc => {} ayant une capacité {}", b.getNomBloc(),b.getCapaciteBloc());
-            if(b.getChambres().isEmpty()){
+            if(b.getChambres()==null || b.getChambres().isEmpty()){
                 log.info("Pas de chambre disponible dans ce bloc");
             }else {
+                log.info("La liste des chambres pour ce bloc:");
                 for (Chambre c : b.getChambres()) {
-                    log.info("La liste des chambres pour ce bloc:");
                     if(b.getChambres().contains(c)){
                         log.info("NumChambre: {} type : {}", c.getNumeroChambre(), c.getTypeC());
                     }
                 }
+                //
             }
         }
     }
