@@ -70,7 +70,6 @@ public class BlocServiceImpl implements IBlocService{
     @Scheduled(cron="0 * * * * *")
     public void listeChambresParBloc() {
         List<Bloc> blocs=blocRepository.findAll();
-        List<Chambre> chambres=chambreRepository.findAll();
         for(Bloc b:blocs){
             log.info("******************************");
             log.info("Bloc => {} ayant une capacité {}", b.getNomBloc(),b.getCapaciteBloc());
