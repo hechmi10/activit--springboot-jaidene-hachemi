@@ -1,9 +1,11 @@
 package tn.esprit.tp_foyer.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -25,9 +27,10 @@ public class Chambre implements Serializable {
     private TypeChambre typeC;
 
     @OneToMany(cascade= CascadeType.ALL)
-    private Set<Reservation> reservation;
+    private Set<Reservation> reservation= new HashSet<>();
 
     @ManyToOne
+    @JsonIgnore
     private Bloc bloc;
 
     // Add this method to calculate available places

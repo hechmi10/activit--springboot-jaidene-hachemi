@@ -10,6 +10,7 @@ public interface IChambreService {
     Chambre retrieveChambre(Long id);
     Chambre addChambre(Chambre c);
     Chambre updateChambre(Chambre c);
+    void deleteChambre(Long id);
     List<Chambre> getChambresParBlocEtType(long idBloc, TypeChambre typeC);
     List<Chambre> getChambresParNomUniversite(String nomUniversite);
     List<Chambre> getChambreNonReservesParNomUniversiteEtTypeChambre(String nomUniversite,TypeChambre typeC);

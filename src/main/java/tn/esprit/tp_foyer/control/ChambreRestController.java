@@ -65,4 +65,9 @@ public class ChambreRestController {
     public List<Chambre> getChambresNonReserveesParNomUniversiteEtTypeChambre(@PathVariable("nomUniversite") String nomUniversite,@PathVariable("typeC") TypeChambre typeC){
         return chambreService.getChambreNonReservesParNomUniversiteEtTypeChambre(nomUniversite,typeC);
     }
+
+    @DeleteMapping("/delete-chambre/{idChambre}")
+    public void deleteChambre(@PathVariable("idChambre") Long idChambre) {
+        chambreService.deleteChambre(idChambre);
+    }
 }

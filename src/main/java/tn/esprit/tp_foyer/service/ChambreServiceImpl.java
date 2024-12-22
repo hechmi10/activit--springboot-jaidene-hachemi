@@ -48,6 +48,11 @@ public class ChambreServiceImpl implements IChambreService{
         return chambreRepository.save(c);
     }
 
+    @Override
+    public void deleteChambre(Long id) {
+        chambreRepository.deleteById(id);
+    }
+
     //Keyword
     @Override
     public List<Chambre> getChambresParBlocEtType(long idBloc, TypeChambre typeC) {
