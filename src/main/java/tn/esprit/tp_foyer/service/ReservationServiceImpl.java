@@ -52,6 +52,7 @@ public class ReservationServiceImpl implements IReservationService{
     public Reservation ajouterReservation(long idBloc, long cinEtudiant) {
         Bloc b = blocRepository.findById(idBloc).orElse(null);
         Etudiant e=etudiantRepository.findByCin(cinEtudiant).orElse(null);
+        assert b != null;
         Chambre c = b.getChambres().stream()
                 .filter(ch -> ch.getReservation().size() < getCapaciteMaximale(ch.getTypeC()))
                 .findFirst().orElse(null);
@@ -74,11 +75,13 @@ public class ReservationServiceImpl implements IReservationService{
     @Override
     public Reservation annulerReservation(long cinEtudiant) {
         Etudiant e=etudiantRepository.findByCin(cinEtudiant).orElse(null);
+        assert e != null;
         Reservation r = e.getReservations().stream()
                 .filter(Reservation::getEstValide)
                 .findFirst()
                 .orElse(null);
 
+        assert r != null;
         r.setEstValide(false);
 
         r.getEtudiants().remove(e);
@@ -88,6 +91,7 @@ public class ReservationServiceImpl implements IReservationService{
                 .findFirst()
                 .orElse(null);
 
+        assert chambreAssociee != null;
         chambreAssociee.getReservation().remove(r);
 
         reservationRepository.save(r);
