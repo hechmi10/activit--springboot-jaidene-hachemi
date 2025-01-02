@@ -56,7 +56,7 @@ public class ReservationServiceImpl implements IReservationService{
                 .filter(ch -> ch.getReservation().size() < getCapaciteMaximale(ch.getTypeC()))
                 .findFirst().orElse(null);
 
-        if (c!=null) {
+        if (c==null) {
             throw new RuntimeException("Aucune chambre disponible pour ce bloc");
         }
 
