@@ -33,4 +33,5 @@ public interface ChambreRepository extends JpaRepository<Chambre, Long> {
             @Param("type") TypeChambre type,
             @Param("currentYear") Date currentYear);
 
+
 }

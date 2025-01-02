@@ -132,5 +132,13 @@ public class ChambreServiceImpl implements IChambreService{
         }
     }
 
+    @Scheduled(cron="0 0 0 1 Jan *")
+    public void listeChambresNonReservees(){
+        Universite universite=universiteRepository.findByNomWithFoyerAndBlocs(null);
+        Chambre chambre=null;
+        List<Chambre> chambresNonReservees=this.getChambreNonReservesParNomUniversiteEtTypeChambre(universite.getNomUniversite(),chambre.getTypeC());
+        log.info(chambresNonReservees.toString());
+    }
+
 
 }
