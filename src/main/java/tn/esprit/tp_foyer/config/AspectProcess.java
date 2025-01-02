@@ -26,7 +26,7 @@ public class AspectProcess {
         log.info("******** Exiting method {} **********", methodName);
     }
 
-    @Around("execution(* tn.esprit.tp_foyer.service.*.*(..))")
+    @Around("execution(* tn.esprit.tp_foyer.service.ReservationServiceImpl.ajouterReservation(..))")
     public Object profile(ProceedingJoinPoint pjp) throws Throwable {
         long start = System.currentTimeMillis();
         try {
