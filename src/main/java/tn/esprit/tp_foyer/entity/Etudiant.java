@@ -26,7 +26,7 @@ public class Etudiant implements Serializable {
     private String ecole;
     private Date dateNaissance;
 
-    @ManyToMany(mappedBy="etudiants",cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL)
     private Set<Reservation> reservations;
 
 }
